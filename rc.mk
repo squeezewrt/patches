@@ -7,10 +7,21 @@
 
 RC_MENU:=Remote control support
 
+define KernelPackage/rc-core
+  SUBMENU:=$(RC_MENU)
+  HIDDEN:=1
+  TITLE:=Remote control core driver
+  KCONFIG:=CONFIG_RC_CORE
+  FILES:=$(LINUX_DIR)/drivers/media/rc/rc-core.ko
+  AUTOLOAD:=$(call AutoLoad,61,rc-core)
+endef
+
+$(eval $(call KernelPackage,rc-core))
+
 define KernelPackage/mceusb
   SUBMENU:=$(RC_MENU)
   TITLE:=Windows Media Center Ed. eHome Infrared Transceiver
-  DEPENDS:=@USB_SUPPORT
+  DEPENDS:=@USB_SUPPORT +rc-core
   KCONFIG:=CONFIG_IR_MCEUSB
   FILES:=$(LINUX_DIR)/drivers/media/rc/mceusb.ko
   AUTOLOAD:=$(call AutoProbe,mceusb)
