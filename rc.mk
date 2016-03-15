@@ -18,10 +18,30 @@ endef
 
 $(eval $(call KernelPackage,rc-core))
 
+define KernelPackage/ir-rc6-decoder
+  SUBMENU:=$(RC_MENU)
+  TITLE:=Enable IR raw decoder for the RC6 protocol
+  KCONFIG:=CONFIG_IR_RC6_DECODER
+  FILES:=$(LINUX_DIR)/drivers/media/rc/ir-rc6-decoder.ko
+  AUTOLOAD:=$(call AutoLoad,61,ir-rc6-decoder)
+endef
+
+$(eval $(call KernelPackage,ir-rc6-decoder))
+
+define KernelPackage/rc-rc6-mce
+  SUBMENU:=$(RC_MENU)
+  TITLE:=Keymap for RC6 protocol
+  KCONFIG:=CONFIG_IR_IMG_RC6
+  FILES:=$(LINUX_DIR)/drivers/media/rc/keymaps/rc-rc6-mce.ko
+  AUTOLOAD:=$(call AutoLoad,61,rc-rc6-mce)
+endef
+
+$(eval $(call KernelPackage,rc-rc6-mce))
+
 define KernelPackage/mceusb
   SUBMENU:=$(RC_MENU)
   TITLE:=Windows Media Center Ed. eHome Infrared Transceiver
-  DEPENDS:=@USB_SUPPORT +kmod-rc-core
+  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
   KCONFIG:=CONFIG_IR_MCEUSB
   FILES:=$(LINUX_DIR)/drivers/media/rc/mceusb.ko
   AUTOLOAD:=$(call AutoProbe,mceusb)
