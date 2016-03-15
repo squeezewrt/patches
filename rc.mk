@@ -21,7 +21,7 @@ $(eval $(call KernelPackage,rc-core))
 define KernelPackage/mceusb
   SUBMENU:=$(RC_MENU)
   TITLE:=Windows Media Center Ed. eHome Infrared Transceiver
-  DEPENDS:=@USB_SUPPORT +rc-core
+  DEPENDS:=@USB_SUPPORT +kmod-rc-core
   KCONFIG:=CONFIG_IR_MCEUSB
   FILES:=$(LINUX_DIR)/drivers/media/rc/mceusb.ko
   AUTOLOAD:=$(call AutoProbe,mceusb)
