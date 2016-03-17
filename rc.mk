@@ -76,8 +76,8 @@ endef
 $(eval $(call KernelPackage,ir-jvc-decoder))
 
 define KernelPackage/ir-mce_kbd-decoder
-  SUBMENU:=$(RC_MENU)
-  TITLE:=Enable IR raw decoder for the MCE keyboard/mouse protocol
+  SUBMENU:=$(RC_MENU)/qqq
+  TITLE:=Enable IR raw decoder for MCE keyboard protocol
   DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_MCE_KBD_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-mce_kbd-decoder.ko
