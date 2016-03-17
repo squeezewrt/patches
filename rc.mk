@@ -9,63 +9,277 @@ RC_MENU:=Remote control support
 
 # !!! Autoload # !!!!
 
-# -- Common stuff --------------------------------
+# -- Remote control devices ----------------------
 
 define KernelPackage/rc-core
   SUBMENU:=$(RC_MENU)
-  HIDDEN:=1
-  TITLE:=Remote control core driver
+  TITLE:=Remote control support
   KCONFIG:=CONFIG_RC_CORE
   FILES:=$(LINUX_DIR)/drivers/media/rc/rc-core.ko
   AUTOLOAD:=$(call AutoLoad,61,rc-core)
 endef
 
+define KernelPackage/rc-core/description
+  Kernel modules for remote control support
+endef
+
+define AddDepends/rc
+  SUBMENU:=$(RC_MENU)
+  DEPENDS+= kmod-rc-core
+endef
+
+define AddDepends/rc-usb
+  DEPENDS+= @USB_SUPPORT +kmod-usb-core
+endef
+
 $(eval $(call KernelPackage,rc-core))
 
-define KernelPackage/lirc_dev
-  SUBMENU:=$(RC_MENU)
-  TITLE:=LIRC interface driver
-  DEPENDS:=+kmod-rc-core
-  KCONFIG:=CONFIG_LIRC
-  FILES:=$(LINUX_DIR)/drivers/media/rc/lirc_dev.ko
-  AUTOLOAD:=$(call AutoLoad,62,lirc_dev)
+define KernelPackage/ati_remote
+  TITLE:=ATI / X10 based USB RF remote controls
+  KCONFIG:=CONFIG_RC_ATI_REMOTE
+  FILES:=$(LINUX_DIR)/drivers/media/rc/ati_remote.ko
+  AUTOLOAD:=$(call AutoProbe,ati_remote)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
 endef
 
-define KernelPackage/lirc_dev/description
-  Enable this option to build the Linux Infrared Remote
-  Control (LIRC) core device interface driver. The LIRC
-  interface passes raw IR to and from userspace, where the
-  LIRC daemon handles protocol decoding for IR reception and
-  encoding for IR transmitting (aka "blasting").
+define KernelPackage/ati_remote/description
+  Say Y here if you want to use an X10 based USB remote control.
+  These are RF remotes with USB receivers.
+
+  Such devices include the ATI remote that comes with many of ATI's
+  All-In-Wonder video cards, the X10 "Lola" remote, NVIDIA RF remote,
+  Medion RF remote, and SnapStream FireFly remote.
+
+  This driver provides mouse pointer, left and right mouse buttons,
+  and maps all the other remote buttons to keypress events.
+
+  To compile this driver as a module, choose M here: the module will be
+  called ati_remote.
 endef
 
-$(eval $(call KernelPackage,lirc_dev))
+$(eval $(call KernelPackage,ati_remote))
+
+define KernelPackage/gpio-ir-recv
+  TITLE:=GPIO IR remote control
+  KCONFIG:=CONFIG_IR_GPIO_CIR
+  FILES:=$(LINUX_DIR)/drivers/media/rc/gpio-ir-recv.ko
+  AUTOLOAD:=$(call AutoLoad,62,gpio-ir-recv)
+  $(call AddDepends/rc)
+endef
+
+define KernelPackage/gpio-ir-recv/description
+  Say Y if you want to use GPIO based IR Receiver.
+
+  To compile this driver as a module, choose M here: the module will
+  be called gpio-ir-recv.
+endef
+
+$(eval $(call KernelPackage,gpio-ir-recv))
+
+define KernelPackage/igorplugusb
+  TITLE:=IgorPlug-USB IR Receiver
+  KCONFIG:=CONFIG_IR_IGORPLUGUSB
+  FILES:=$(LINUX_DIR)/drivers/media/rc/igorplugusb.ko
+  AUTOLOAD:=$(call AutoProbe,igorplugusb)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/igorplugusb/description
+  Say Y here if you want to use the IgorPlug-USB IR Receiver by
+  Igor Cesko. This device is included on the Fit-PC2.
+
+  Note that this device can only record bursts of 36 IR pulses and
+  spaces, which is not enough for the NEC, Sanyo and RC-6 protocol.
+
+  To compile this driver as a module, choose M here: the module will
+  be called igorplugusb.
+endef
+
+$(eval $(call KernelPackage,igorplugusb))
+
+define KernelPackage/iguanair
+  TITLE:=IguanaWorks USB IR Transceiver
+  KCONFIG:=CONFIG_IR_IGUANA
+  FILES:=$(LINUX_DIR)/drivers/media/rc/iguanair.ko
+  AUTOLOAD:=$(call AutoProbe,iguanair)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/iguanair/description
+  Say Y here if you want to use the IguanaWorks USB IR Transceiver.
+  Both infrared receive and send are supported. If you want to
+  change the ID or the pin config, use the user space driver from
+  IguanaWorks.
+
+  Only firmware 0x0205 and later is supported.
+
+  To compile this driver as a module, choose M here: the module will
+  be called iguanair.
+endef
+
+$(eval $(call KernelPackage,iguanair))
+
+define KernelPackage/imon
+  TITLE:=SoundGraph iMON Receiver and Display
+  KCONFIG:=CONFIG_IR_IMON
+  FILES:=$(LINUX_DIR)/drivers/media/rc/imon.ko
+  AUTOLOAD:=$(call AutoProbe,imon)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/imon/description
+  Say Y here if you want to use a SoundGraph iMON (aka Antec Veris)
+  IR Receiver and/or LCD/VFD/VGA display.
+
+  To compile this driver as a module, choose M here: the
+  module will be called imon.
+endef
+
+$(eval $(call KernelPackage,imon))
+
+define KernelPackage/ir-hix5hd2
+  TITLE:=Hisilicon hix5hd2 IR remote control
+  KCONFIG:=CONFIG_IR_HIX5HD2
+  FILES:=$(LINUX_DIR)/drivers/media/rc/ir-hix5hd2.ko
+  AUTOLOAD:=$(call AutoLoad,62,ir-hix5hd2)
+  $(call AddDepends/rc)
+endef
+
+define KernelPackage/ir-hix5hd2/description
+  Say Y here if you want to use hisilicon hix5hd2 remote control.
+  To compile this driver as a module, choose M here: the module will be
+  called ir-hix5hd2.
+
+  If you're not sure, select N here
+endef
+
+$(eval $(call KernelPackage,ir-hix5hd2))
+
+define KernelPackage/mceusb
+  TITLE:=Windows Media Center Ed. eHome Infrared Transceiver
+  KCONFIG:=CONFIG_IR_MCEUSB
+  FILES:=$(LINUX_DIR)/drivers/media/rc/mceusb.ko
+  AUTOLOAD:=$(call AutoProbe,mceusb)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/mceusb/description
+  Say Y here if you want to use a Windows Media Center Edition
+  eHome Infrared Transceiver.
+
+  To compile this driver as a module, choose M here: the
+  module will be called mceusb.
+endef
+
+$(eval $(call KernelPackage,mceusb))
+
+define KernelPackage/rc-loopback
+  TITLE:=Remote Control Loopback Driver
+  KCONFIG:=CONFIG_RC_LOOPBACK
+  FILES:=$(LINUX_DIR)/drivers/media/rc/rc-loopback.ko
+  AUTOLOAD:=$(call AutoLoad,62,rc-loopback)
+  $(call AddDepends/rc)
+endef
+
+define KernelPackage/rc-loopback/description
+  Say Y here if you want support for the remote control loopback
+  driver which allows TX data to be sent back as RX data.
+  This is mostly useful for debugging purposes.
+
+  If you're not sure, select N here.
+
+  To compile this driver as a module, choose M here: the module will
+  be called rc-loopback.
+endef
+
+$(eval $(call KernelPackage,rc-loopback))
+
+define KernelPackage/redrat3
+  TITLE:=RedRat3 IR Transceiver
+  KCONFIG:=CONFIG_IR_REDRAT3
+  FILES:=$(LINUX_DIR)/drivers/media/rc/redrat3.ko
+  AUTOLOAD:=$(call AutoProbe,redrat3)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/redrat3/description
+  Say Y here if you want to use a RedRat3 Infrared Transceiver.
+
+  To compile this driver as a module, choose M here: the
+  module will be called redrat3.
+endef
+
+$(eval $(call KernelPackage,redrat3))
+
+define KernelPackage/streamzap
+  TITLE:=Streamzap PC Remote IR Receiver
+  KCONFIG:=CONFIG_IR_STREAMZAP
+  FILES:=$(LINUX_DIR)/drivers/media/rc/streamzap.ko
+  AUTOLOAD:=$(call AutoProbe,streamzap)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/streamzap/description
+  Say Y here if you want to use a Streamzap PC Remote
+  Infrared Receiver.
+
+  To compile this driver as a module, choose M here: the
+  module will be called streamzap.
+endef
+
+$(eval $(call KernelPackage,streamzap))
+
+define KernelPackage/ttusbir
+  TITLE:=TechnoTrend USB IR Receiver
+  KCONFIG:=CONFIG_IR_TTUSBIR
+  FILES:=$(LINUX_DIR)/drivers/media/rc/ttusbir.ko
+  AUTOLOAD:=$(call AutoProbe,ttusbir)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-usb)
+endef
+
+define KernelPackage/ttusbir/description
+  Say Y here if you want to use the TechnoTrend USB IR Receiver. The
+  driver can control the led.
+
+  To compile this driver as a module, choose M here: the module will
+  be called ttusbir.
+endef
+
+$(eval $(call KernelPackage,ttusbir))
 
 # -- Remote controller decoders ------------------
 
-define KernelPackage/ir-lirc-codec
-  SUBMENU:=$(RC_MENU)
-  TITLE:=Enable IR to LIRC bridge
-  DEPENDS:=+kmod-rc-core
-  KCONFIG:=CONFIG_IR_LIRC_CODEC
-  FILES:=$(LINUX_DIR)/drivers/media/rc/ir-lirc-codec.ko
-  AUTOLOAD:=$(call AutoLoad,62,ir-lirc-codec)
+define KernelPackage/rc-decoders
+  TITLE:=Remote controller decoders
+  KCONFIG:=CONFIG_RC_DECODERS
+  $(call AddDepends/rc)
 endef
 
-define KernelPackage/ir-lirc-codec/description
-  Enable this option to pass raw IR to and from userspace via
-  the LIRC interface.
+define KernelPackage/rc-decoders/description
+  Enable this option to compile remote controller decoders
 endef
 
-$(eval $(call KernelPackage,ir-lirc-codec))
+define AddDepends/rc-decoders
+  DEPENDS+= @CONFIG_RC_DECODERS
+endef
+
+$(eval $(call KernelPackage,rc-decoders))
 
 define KernelPackage/ir-jvc-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the JVC protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_JVC_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-jvc-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-jvc-decoder)
+  $(call AddDepends/rc)
+  $(call AddDepends/rc-decoders)
 endef
 
 define KernelPackage/ir-jvc-decoder/description
@@ -205,228 +419,39 @@ endef
 
 $(eval $(call KernelPackage,ir-xmp-decoder))
 
-# -- Remote control devices ----------------------
+# -- LIRC stuff --------------------------------
 
-define KernelPackage/ati_remote
+define KernelPackage/ir-lirc-codec
   SUBMENU:=$(RC_MENU)
-  TITLE:=ATI / X10 based USB RF remote controls
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_RC_ATI_REMOTE
-  FILES:=$(LINUX_DIR)/drivers/media/rc/ati_remote.ko
-  AUTOLOAD:=$(call AutoProbe,ati_remote)
-endef
-
-define KernelPackage/ati_remote/description
-  Say Y here if you want to use an X10 based USB remote control.
-  These are RF remotes with USB receivers.
-
-  Such devices include the ATI remote that comes with many of ATI's
-  All-In-Wonder video cards, the X10 "Lola" remote, NVIDIA RF remote,
-  Medion RF remote, and SnapStream FireFly remote.
-
-  This driver provides mouse pointer, left and right mouse buttons,
-  and maps all the other remote buttons to keypress events.
-
-  To compile this driver as a module, choose M here: the module will be
-  called ati_remote.
-endef
-
-$(eval $(call KernelPackage,ati_remote))
-
-define KernelPackage/gpio-ir-recv
-  SUBMENU:=$(RC_MENU)
-  TITLE:=GPIO IR remote control
+  TITLE:=Enable IR to LIRC bridge
   DEPENDS:=+kmod-rc-core
-  KCONFIG:=CONFIG_IR_GPIO_CIR
-  FILES:=$(LINUX_DIR)/drivers/media/rc/gpio-ir-recv.ko
-  AUTOLOAD:=$(call AutoLoad,62,gpio-ir-recv)
+  KCONFIG:=CONFIG_IR_LIRC_CODEC
+  FILES:=$(LINUX_DIR)/drivers/media/rc/ir-lirc-codec.ko
+  AUTOLOAD:=$(call AutoLoad,62,ir-lirc-codec)
 endef
 
-define KernelPackage/gpio-ir-recv/description
-  Say Y if you want to use GPIO based IR Receiver.
-
-  To compile this driver as a module, choose M here: the module will
-  be called gpio-ir-recv.
+define KernelPackage/ir-lirc-codec/description
+  Enable this option to pass raw IR to and from userspace via
+  the LIRC interface.
 endef
 
-$(eval $(call KernelPackage,gpio-ir-recv))
+$(eval $(call KernelPackage,ir-lirc-codec))
 
-define KernelPackage/igorplugusb
+define KernelPackage/lirc_dev
   SUBMENU:=$(RC_MENU)
-  TITLE:=IgorPlug-USB IR Receiver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_IGORPLUGUSB
-  FILES:=$(LINUX_DIR)/drivers/media/rc/igorplugusb.ko
-  AUTOLOAD:=$(call AutoProbe,igorplugusb)
-endef
-
-define KernelPackage/igorplugusb/description
-  Say Y here if you want to use the IgorPlug-USB IR Receiver by
-  Igor Cesko. This device is included on the Fit-PC2.
-
-  Note that this device can only record bursts of 36 IR pulses and
-  spaces, which is not enough for the NEC, Sanyo and RC-6 protocol.
-
-  To compile this driver as a module, choose M here: the module will
-  be called igorplugusb.
-endef
-
-$(eval $(call KernelPackage,igorplugusb))
-
-define KernelPackage/iguanair
-  SUBMENU:=$(RC_MENU)
-  TITLE:=IguanaWorks USB IR Transceiver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_IGUANA
-  FILES:=$(LINUX_DIR)/drivers/media/rc/iguanair.ko
-  AUTOLOAD:=$(call AutoProbe,iguanair)
-endef
-
-define KernelPackage/iguanair/description
-  Say Y here if you want to use the IguanaWorks USB IR Transceiver.
-  Both infrared receive and send are supported. If you want to
-  change the ID or the pin config, use the user space driver from
-  IguanaWorks.
-
-  Only firmware 0x0205 and later is supported.
-
-  To compile this driver as a module, choose M here: the module will
-  be called iguanair.
-endef
-
-$(eval $(call KernelPackage,iguanair))
-
-define KernelPackage/imon
-  SUBMENU:=$(RC_MENU)
-  TITLE:=SoundGraph iMON Receiver and Display
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_IMON
-  FILES:=$(LINUX_DIR)/drivers/media/rc/imon.ko
-  AUTOLOAD:=$(call AutoProbe,imon)
-endef
-
-define KernelPackage/imon/description
-  Say Y here if you want to use a SoundGraph iMON (aka Antec Veris)
-  IR Receiver and/or LCD/VFD/VGA display.
-
-  To compile this driver as a module, choose M here: the
-  module will be called imon.
-endef
-
-$(eval $(call KernelPackage,imon))
-
-define KernelPackage/ir-hix5hd2
-  SUBMENU:=$(RC_MENU)
-  TITLE:=Hisilicon hix5hd2 IR remote control
+  TITLE:=LIRC interface driver
   DEPENDS:=+kmod-rc-core
-  KCONFIG:=CONFIG_IR_HIX5HD2
-  FILES:=$(LINUX_DIR)/drivers/media/rc/ir-hix5hd2.ko
-  AUTOLOAD:=$(call AutoLoad,62,ir-hix5hd2)
+  KCONFIG:=CONFIG_LIRC
+  FILES:=$(LINUX_DIR)/drivers/media/rc/lirc_dev.ko
+  AUTOLOAD:=$(call AutoLoad,62,lirc_dev)
 endef
 
-define KernelPackage/ir-hix5hd2/description
-  Say Y here if you want to use hisilicon hix5hd2 remote control.
-  To compile this driver as a module, choose M here: the module will be
-  called ir-hix5hd2.
-
-  If you're not sure, select N here
+define KernelPackage/lirc_dev/description
+  Enable this option to build the Linux Infrared Remote
+  Control (LIRC) core device interface driver. The LIRC
+  interface passes raw IR to and from userspace, where the
+  LIRC daemon handles protocol decoding for IR reception and
+  encoding for IR transmitting (aka "blasting").
 endef
 
-$(eval $(call KernelPackage,ir-hix5hd2))
-
-define KernelPackage/mceusb
-  SUBMENU:=$(RC_MENU)
-  TITLE:=Windows Media Center Ed. eHome Infrared Transceiver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_MCEUSB
-  FILES:=$(LINUX_DIR)/drivers/media/rc/mceusb.ko
-  AUTOLOAD:=$(call AutoProbe,mceusb)
-endef
-
-define KernelPackage/mceusb/description
-  Say Y here if you want to use a Windows Media Center Edition
-  eHome Infrared Transceiver.
-
-  To compile this driver as a module, choose M here: the
-  module will be called mceusb.
-endef
-
-$(eval $(call KernelPackage,mceusb))
-
-define KernelPackage/rc-loopback
-  SUBMENU:=$(RC_MENU)
-  TITLE:=Remote Control Loopback Driver
-  DEPENDS:=+kmod-rc-core
-  KCONFIG:=CONFIG_RC_LOOPBACK
-  FILES:=$(LINUX_DIR)/drivers/media/rc/rc-loopback.ko
-  AUTOLOAD:=$(call AutoLoad,62,rc-loopback)
-endef
-
-define KernelPackage/rc-loopback/description
-  Say Y here if you want support for the remote control loopback
-  driver which allows TX data to be sent back as RX data.
-  This is mostly useful for debugging purposes.
-
-  If you're not sure, select N here.
-
-  To compile this driver as a module, choose M here: the module will
-  be called rc-loopback.
-endef
-
-$(eval $(call KernelPackage,rc-loopback))
-
-define KernelPackage/redrat3
-  SUBMENU:=$(RC_MENU)
-  TITLE:=RedRat3 IR Transceiver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_REDRAT3
-  FILES:=$(LINUX_DIR)/drivers/media/rc/redrat3.ko
-  AUTOLOAD:=$(call AutoProbe,redrat3)
-endef
-
-define KernelPackage/redrat3/description
-  Say Y here if you want to use a RedRat3 Infrared Transceiver.
-
-  To compile this driver as a module, choose M here: the
-  module will be called redrat3.
-endef
-
-$(eval $(call KernelPackage,redrat3))
-
-define KernelPackage/streamzap
-  SUBMENU:=$(RC_MENU)
-  TITLE:=Streamzap PC Remote IR Receiver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_STREAMZAP
-  FILES:=$(LINUX_DIR)/drivers/media/rc/streamzap.ko
-  AUTOLOAD:=$(call AutoProbe,streamzap)
-endef
-
-define KernelPackage/streamzap/description
-  Say Y here if you want to use a Streamzap PC Remote
-  Infrared Receiver.
-
-  To compile this driver as a module, choose M here: the
-  module will be called streamzap.
-endef
-
-$(eval $(call KernelPackage,streamzap))
-
-define KernelPackage/ttusbir
-  SUBMENU:=$(RC_MENU)
-  TITLE:=TechnoTrend USB IR Receiver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-rc-core
-  KCONFIG:=CONFIG_IR_TTUSBIR
-  FILES:=$(LINUX_DIR)/drivers/media/rc/ttusbir.ko
-  AUTOLOAD:=$(call AutoProbe,ttusbir)
-endef
-
-define KernelPackage/ttusbir/description
-  Say Y here if you want to use the TechnoTrend USB IR Receiver. The
-  driver can control the led.
-
-  To compile this driver as a module, choose M here: the module will
-  be called ttusbir.
-endef
-
-$(eval $(call KernelPackage,ttusbir))
+$(eval $(call KernelPackage,lirc_dev))
