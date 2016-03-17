@@ -76,7 +76,7 @@ endef
 $(eval $(call KernelPackage,ir-jvc-decoder))
 
 define KernelPackage/ir-mce_kbd-decoder
-  SUBMENU:=$(RC_MENU)/qqq
+  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for MCE keyboard protocol
   DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_MCE_KBD_DECODER
