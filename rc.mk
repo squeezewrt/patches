@@ -257,29 +257,12 @@ $(eval $(call KernelPackage,ttusbir))
 
 # -- Remote controller decoders ------------------
 
-define KernelPackage/rc-decoders
-  TITLE:=Remote controller decoders
-  KCONFIG:=CONFIG_RC_DECODERS
-  $(call AddDepends/rc)
-endef
-
-define KernelPackage/rc-decoders/description
-  Enable this option to compile remote controller decoders
-endef
-
-define AddDepends/rc-decoders
-  DEPENDS+= @CONFIG_RC_DECODERS
-endef
-
-$(eval $(call KernelPackage,rc-decoders))
-
 define KernelPackage/ir-jvc-decoder
   TITLE:=Enable IR raw decoder for the JVC protocol
   KCONFIG:=CONFIG_IR_JVC_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-jvc-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-jvc-decoder)
   $(call AddDepends/rc)
-  $(call AddDepends/rc-decoders)
 endef
 
 define KernelPackage/ir-jvc-decoder/description
@@ -290,12 +273,11 @@ endef
 $(eval $(call KernelPackage,ir-jvc-decoder))
 
 define KernelPackage/ir-mce_kbd-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for MCE keyboard protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_MCE_KBD_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-mce_kbd-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-mce_kbd-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-mce_kbd-decoder/description
@@ -307,12 +289,11 @@ endef
 $(eval $(call KernelPackage,ir-mce_kbd-decoder))
 
 define KernelPackage/ir-nec-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the NEC protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_NEC_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-nec-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-nec-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-nec-decoder/description
@@ -323,12 +304,11 @@ endef
 $(eval $(call KernelPackage,ir-nec-decoder))
 
 define KernelPackage/ir-rc5-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the RC-5 protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_RC5_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-rc5-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-rc5-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-rc5-decoder/description
@@ -339,12 +319,11 @@ endef
 $(eval $(call KernelPackage,ir-rc5-decoder))
 
 define KernelPackage/ir-rc6-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the RC-6 protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_RC6_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-rc6-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-rc6-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-rc6-decoder/description
@@ -355,12 +334,11 @@ endef
 $(eval $(call KernelPackage,ir-rc6-decoder))
 
 define KernelPackage/ir-sanyo-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the Sanyo protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_SANYO_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-sanyo-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-sanyo-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-sanyo-decoder/description
@@ -372,12 +350,11 @@ endef
 $(eval $(call KernelPackage,ir-sanyo-decoder))
 
 define KernelPackage/ir-sharp-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the Sharp protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_SHARP_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-sharp-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-sharp-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-sharp-decoder/description
@@ -388,12 +365,11 @@ endef
 $(eval $(call KernelPackage,ir-sharp-decoder))
 
 define KernelPackage/ir-sony-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the Sony protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_SONY_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-sony-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-sony-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-sony-decoder/description
@@ -404,12 +380,11 @@ endef
 $(eval $(call KernelPackage,ir-sony-decoder))
 
 define KernelPackage/ir-xmp-decoder
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR raw decoder for the XMP protocol
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_XMP_DECODER
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-xmp-decoder.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-xmp-decoder)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-xmp-decoder/description
@@ -422,12 +397,11 @@ $(eval $(call KernelPackage,ir-xmp-decoder))
 # -- LIRC stuff --------------------------------
 
 define KernelPackage/ir-lirc-codec
-  SUBMENU:=$(RC_MENU)
   TITLE:=Enable IR to LIRC bridge
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_IR_LIRC_CODEC
   FILES:=$(LINUX_DIR)/drivers/media/rc/ir-lirc-codec.ko
   AUTOLOAD:=$(call AutoLoad,62,ir-lirc-codec)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/ir-lirc-codec/description
@@ -438,12 +412,11 @@ endef
 $(eval $(call KernelPackage,ir-lirc-codec))
 
 define KernelPackage/lirc_dev
-  SUBMENU:=$(RC_MENU)
   TITLE:=LIRC interface driver
-  DEPENDS:=+kmod-rc-core
   KCONFIG:=CONFIG_LIRC
   FILES:=$(LINUX_DIR)/drivers/media/rc/lirc_dev.ko
   AUTOLOAD:=$(call AutoLoad,62,lirc_dev)
+  $(call AddDepends/rc)
 endef
 
 define KernelPackage/lirc_dev/description
