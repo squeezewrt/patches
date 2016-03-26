@@ -248,6 +248,21 @@ endef
 
 $(eval $(call KernelPackage,rc-ttusbir))
 
+define KernelPackage/rc-imgtec
+  TITLE:=ImgTec IR Decoder
+  KCONFIG:=CONFIG_IR_IMG
+  FILES:=$(LINUX_DIR)/drivers/media/rc/img-ir/img-ir.ko
+  AUTOLOAD:=$(call AutoProbe,img-ir)
+  $(call AddDepends/rc)
+endef
+
+define KernelPackage/rc-imgtec/description
+  Say Y or M here if you want to use the ImgTec infrared decoder
+  functionality found in SoCs such as TZ1090.
+endef
+
+$(eval $(call KernelPackage,rc-imgtec))
+
 # -- Remote controller decoders ------------------
 
 define KernelPackage/rcdec-jvc
@@ -421,3 +436,113 @@ define KernelPackage/lirc-codec/description
 endef
 
 $(eval $(call KernelPackage,lirc-codec))
+
+# -- Remote controller keymaps -------------------
+
+define KernelPackage/rcmap-keymaps
+  TITLE:=Remote Controller keymap modules
+  KCONFIG:=CONFIG_RC_MAP
+  FILES:=
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-adstech-dvb-t-pci.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-alink-dtu-m.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-anysee.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-apac-viewcomp.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-asus-pc39.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-asus-ps3-100.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-ati-tv-wonder-hd-600.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-ati-x10.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-a16d.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-cardbus.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-dvbt.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-m135a.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-m733a-rm-k6.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-rm-ks.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avertv-303.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-azurewave-ad-tu700.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-behold-columbus.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-behold.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-budget-ci-old.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-cinergy-1400.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-cinergy.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-delock-61959.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dib0700-nec.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dib0700-rc5.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-digitalnow-tinytwin.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-digittrade.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dm1105-nec.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dntv-live-dvb-t.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dntv-live-dvbt-pro.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dvbsky.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-em-terratec.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv-fm53.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv2.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-evga-indtube.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-eztv.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-flydvb.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-flyvideo.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-fusionhdtv-mce.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-gadmei-rm008z.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-genius-tvgo-a11mce.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-gotview7135.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-hauppauge.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-imon-mce.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-imon-pad.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-iodata-bctv7e.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-it913x-v1.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-it913x-v2.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kaiomy.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-315u.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-pc150u.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-plus-tv-analog.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-leadtek-y04g0051.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-lirc.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-lme2510.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-manli.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10-digitainer.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10-or2x.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-digivox-ii.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-digivox-iii.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-tvanywhere-plus.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-tvanywhere.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-nebula.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-nec-terratec-cinergy-xs.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-norwood.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-npgtech.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pctv-sedna.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-color.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-grey.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-pctv-hd.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-002t.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-mk12.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-new.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-powercolor-real-angel.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-proteus-2309.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-purpletv.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pv951.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-rc6-mce.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-real-audio-220-32-keys.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-reddo.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-snapstream-firefly.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-streamzap.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-su3000.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tbs-nec.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-technisat-usb2.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-cinergy-xs.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-slim-2.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-slim.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tevii-nec.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tivo.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-total-media-in-hand-02.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-total-media-in-hand.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-trekstor.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tt-1500.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-twinhan1027.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-m1f.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-s350.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-tv-pvr.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-winfast-usbii-deluxe.ko
+$(LINUX_DIR)/drivers/media/rc/keymaps/rc-winfast.ko
