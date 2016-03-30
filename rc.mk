@@ -602,181 +602,362 @@ define KernelPackage/rcmap-dvbsky
 endef
 $(eval $(call KernelPackage,rcmap-dvbsky))
 
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-em-terratec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv-fm53.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-evga-indtube.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-eztv.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-flydvb.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-flyvideo.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-fusionhdtv-mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-gadmei-rm008z.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-genius-tvgo-a11mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-gotview7135.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-hauppauge.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-imon-mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-imon-pad.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-iodata-bctv7e.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-it913x-v1.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-it913x-v2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kaiomy.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-315u.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-pc150u.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-plus-tv-analog.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-leadtek-y04g0051.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-lirc.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-lme2510.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-manli.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10-digitainer.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10-or2x.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-digivox-ii.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-digivox-iii.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-tvanywhere-plus.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-tvanywhere.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-nebula.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-nec-terratec-cinergy-xs.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-norwood.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-npgtech.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pctv-sedna.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-color.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-grey.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-pctv-hd.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-002t.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-mk12.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-new.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-powercolor-real-angel.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-proteus-2309.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-purpletv.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pv951.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-rc6-mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-real-audio-220-32-keys.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-reddo.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-snapstream-firefly.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-streamzap.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-su3000.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tbs-nec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-technisat-usb2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-cinergy-xs.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-slim-2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-slim.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tevii-nec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tivo.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-total-media-in-hand-02.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-total-media-in-hand.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-trekstor.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tt-1500.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-twinhan1027.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-m1f.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-s350.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-tv-pvr.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-winfast-usbii-deluxe.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-winfast.ko
+define KernelPackage/rcmap-terratec
+  $(call RcmapTemplate/rcmap,rc-em-terratec)
+endef
+$(eval $(call KernelPackage,rcmap-terratec))
 
-#----------------------------
-  
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-adstech-dvb-t-pci.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-alink-dtu-m.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-anysee.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-apac-viewcomp.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-asus-pc39.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-asus-ps3-100.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-ati-tv-wonder-hd-600.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-ati-x10.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-a16d.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-cardbus.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-dvbt.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-m135a.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-m733a-rm-k6.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia-rm-ks.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avermedia.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-avertv-303.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-azurewave-ad-tu700.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-behold-columbus.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-behold.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-budget-ci-old.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-cinergy-1400.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-cinergy.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-delock-61959.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dib0700-nec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dib0700-rc5.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-digitalnow-tinytwin.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-digittrade.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dm1105-nec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dntv-live-dvb-t.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dntv-live-dvbt-pro.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-dvbsky.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-em-terratec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv-fm53.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-encore-enltv2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-evga-indtube.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-eztv.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-flydvb.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-flyvideo.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-fusionhdtv-mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-gadmei-rm008z.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-genius-tvgo-a11mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-gotview7135.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-hauppauge.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-imon-mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-imon-pad.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-iodata-bctv7e.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-it913x-v1.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-it913x-v2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kaiomy.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-315u.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-pc150u.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-kworld-plus-tv-analog.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-leadtek-y04g0051.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-lirc.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-lme2510.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-manli.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10-digitainer.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10-or2x.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-medion-x10.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-digivox-ii.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-digivox-iii.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-tvanywhere-plus.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-msi-tvanywhere.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-nebula.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-nec-terratec-cinergy-xs.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-norwood.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-npgtech.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pctv-sedna.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-color.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-grey.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pinnacle-pctv-hd.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-002t.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-mk12.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview-new.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pixelview.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-powercolor-real-angel.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-proteus-2309.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-purpletv.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-pv951.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-rc6-mce.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-real-audio-220-32-keys.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-reddo.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-snapstream-firefly.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-streamzap.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-su3000.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tbs-nec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-technisat-usb2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-cinergy-xs.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-slim-2.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-terratec-slim.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tevii-nec.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tivo.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-total-media-in-hand-02.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-total-media-in-hand.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-trekstor.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-tt-1500.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-twinhan1027.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-m1f.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-s350.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-videomate-tv-pvr.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-winfast-usbii-deluxe.ko
-#$(LINUX_DIR)/drivers/media/rc/keymaps/rc-winfast.ko
+define KernelPackage/rcmap-encore-enltv-fm53
+  $(call RcmapTemplate/rcmap,rc-encore-enltv-fm53)
+endef
+$(eval $(call KernelPackage,rcmap-encore-enltv-fm53))
+
+define KernelPackage/rcmap-encore-enltv
+  $(call RcmapTemplate/rcmap,rc-encore-enltv)
+endef
+$(eval $(call KernelPackage,rcmap-encore-enltv))
+
+define KernelPackage/rcmap-encore-enltv2
+  $(call RcmapTemplate/rcmap,rc-encore-enltv2)
+endef
+$(eval $(call KernelPackage,rcmap-encore-enltv2))
+
+define KernelPackage/rcmap-evga-indtube
+  $(call RcmapTemplate/rcmap,rc-evga-indtube)
+endef
+$(eval $(call KernelPackage,rcmap-evga-indtube))
+
+define KernelPackage/rcmap-eztv
+  $(call RcmapTemplate/rcmap,rc-eztv)
+endef
+$(eval $(call KernelPackage,rcmap-eztv))
+
+define KernelPackage/rcmap-flydvb
+  $(call RcmapTemplate/rcmap,rc-flydvb)
+endef
+$(eval $(call KernelPackage,rcmap-flydvb))
+
+define KernelPackage/rcmap-flyvideo
+  $(call RcmapTemplate/rcmap,rc-flyvideo)
+endef
+$(eval $(call KernelPackage,rcmap-flyvideo))
+
+define KernelPackage/rcmap-fusionhdtv
+  $(call RcmapTemplate/rcmap,rc-fusionhdtv-mce)
+endef
+$(eval $(call KernelPackage,rcmap-fusionhdtv))
+
+define KernelPackage/rcmap-gadmei
+  $(call RcmapTemplate/rcmap,rc-gadmei-rm008z)
+endef
+$(eval $(call KernelPackage,rcmap-gadmei))
+
+define KernelPackage/rcmap-genius
+  $(call RcmapTemplate/rcmap,rc-genius-tvgo-a11mce)
+endef
+$(eval $(call KernelPackage,rcmap-genius))
+
+define KernelPackage/rcmap-gotview7135
+  $(call RcmapTemplate/rcmap,rc-gotview7135)
+endef
+$(eval $(call KernelPackage,rcmap-gotview7135))
+
+define KernelPackage/rcmap-hauppauge
+  $(call RcmapTemplate/rcmap,rc-hauppauge)
+endef
+$(eval $(call KernelPackage,rcmap-hauppauge))
+
+define KernelPackage/rcmap-imon-mce
+  $(call RcmapTemplate/rcmap,rc-imon-mce)
+endef
+$(eval $(call KernelPackage,rcmap-imon-mce))
+
+define KernelPackage/rcmap-imon-pad
+  $(call RcmapTemplate/rcmap,rc-imon-pad)
+endef
+$(eval $(call KernelPackage,rcmap-imon-pad))
+
+define KernelPackage/rcmap-iodata
+  $(call RcmapTemplate/rcmap,rc-iodata-bctv7e)
+endef
+$(eval $(call KernelPackage,rcmap-iodata))
+
+define KernelPackage/rcmap-it913x-v1
+  $(call RcmapTemplate/rcmap,rc-it913x-v1)
+endef
+$(eval $(call KernelPackage,rcmap-it913x-v1))
+
+define KernelPackage/rcmap-it913x-v2
+  $(call RcmapTemplate/rcmap,rc-it913x-v2)
+endef
+$(eval $(call KernelPackage,rcmap-it913x-v2))
+
+define KernelPackage/rcmap-kaiomy
+  $(call RcmapTemplate/rcmap,rc-kaiomy)
+endef
+$(eval $(call KernelPackage,rcmap-kaiomy))
+
+define KernelPackage/rcmap-kworld-315u
+  $(call RcmapTemplate/rcmap,rc-kworld-315u)
+endef
+$(eval $(call KernelPackage,rcmap-kworld-315u))
+
+define KernelPackage/rcmap-kworld-pc150u
+  $(call RcmapTemplate/rcmap,rc-kworld-pc150u)
+endef
+$(eval $(call KernelPackage,rcmap-kworld-pc150u))
+
+define KernelPackage/rcmap-kworld-plus-tv
+  $(call RcmapTemplate/rcmap,rc-kworld-plus-tv-analog)
+endef
+$(eval $(call KernelPackage,rcmap-kworld-plus-tv))
+
+define KernelPackage/rcmap-leadtek
+  $(call RcmapTemplate/rcmap,rc-leadtek-y04g0051)
+endef
+$(eval $(call KernelPackage,rcmap-leadtek))
+
+define KernelPackage/rcmap-lirc
+  $(call RcmapTemplate/rcmap,rc-lirc)
+endef
+$(eval $(call KernelPackage,rcmap-lirc))
+
+define KernelPackage/rcmap-lme2510
+  $(call RcmapTemplate/rcmap,rc-lme2510)
+endef
+$(eval $(call KernelPackage,rcmap-lme2510))
+
+define KernelPackage/rcmap-manli
+  $(call RcmapTemplate/rcmap,rc-manli)
+endef
+$(eval $(call KernelPackage,rcmap-manli))
+
+define KernelPackage/rcmap-medion-x10-digi
+  $(call RcmapTemplate/rcmap,rc-medion-x10-digitainer)
+endef
+$(eval $(call KernelPackage,rcmap-medion-x10-digi))
+
+define KernelPackage/rcmap-medion-x10-or2x
+  $(call RcmapTemplate/rcmap,rc-medion-x10-or2x)
+endef
+$(eval $(call KernelPackage,rcmap-medion-x10-or2x))
+
+define KernelPackage/rcmap-medion-x10
+  $(call RcmapTemplate/rcmap,rc-medion-x10)
+endef
+$(eval $(call KernelPackage,rcmap-medion-x10))
+
+define KernelPackage/rcmap-msi-digivox-ii
+  $(call RcmapTemplate/rcmap,rc-msi-digivox-ii)
+endef
+$(eval $(call KernelPackage,rcmap-msi-digivox-ii))
+
+define KernelPackage/rcmap-msi-digivox-iii
+  $(call RcmapTemplate/rcmap,rc-msi-digivox-iii)
+endef
+$(eval $(call KernelPackage,rcmap-msi-digivox-iii))
+
+define KernelPackage/rcmap-msi-tvanywhere-plus
+  $(call RcmapTemplate/rcmap,rc-msi-tvanywhere-plus)
+endef
+$(eval $(call KernelPackage,rcmap-msi-tvanywhere-plus))
+
+define KernelPackage/rcmap-rc-msi-tvanywhere
+  $(call RcmapTemplate/rcmap,rc-msi-tvanywhere)
+endef
+$(eval $(call KernelPackage,rcmap-rc-msi-tvanywhere))
+
+define KernelPackage/rcmap-nebula
+  $(call RcmapTemplate/rcmap,rc-nebula)
+endef
+$(eval $(call KernelPackage,rcmap-nebula))
+
+define KernelPackage/rcmap-nec-terratec-cinergy-xs
+  $(call RcmapTemplate/rcmap,rc-nec-terratec-cinergy-xs)
+endef
+$(eval $(call KernelPackage,rcmap-nec-terratec-cinergy-xs))
+
+define KernelPackage/rcmap-norwood
+  $(call RcmapTemplate/rcmap,rc-norwood)
+endef
+$(eval $(call KernelPackage,rcmap-norwood))
+
+define KernelPackage/rcmap-npgtech
+  $(call RcmapTemplate/rcmap,rc-npgtech)
+endef
+$(eval $(call KernelPackage,rcmap-npgtech))
+
+define KernelPackage/rcmap-pctv-sedna
+  $(call RcmapTemplate/rcmap,rc-pctv-sedna)
+endef
+$(eval $(call KernelPackage,rcmap-pctv-sedna))
+
+define KernelPackage/rcmap-pinnacle-color
+  $(call RcmapTemplate/rcmap,rc-pinnacle-color)
+endef
+$(eval $(call KernelPackage,rcmap-pinnacle-color))
+
+define KernelPackage/rcmap-pinnacle-grey
+  $(call RcmapTemplate/rcmap,rc-pinnacle-grey)
+endef
+$(eval $(call KernelPackage,rcmap-pinnacle-grey))
+
+define KernelPackage/rcmap-pinnacle-pctv-hd
+  $(call RcmapTemplate/rcmap,rc-pinnacle-pctv-hd)
+endef
+$(eval $(call KernelPackage,rcmap-pinnacle-pctv-hd))
+
+define KernelPackage/rcmap-pixelview-002t
+  $(call RcmapTemplate/rcmap,rc-pixelview-002t)
+endef
+$(eval $(call KernelPackage,rcmap-pixelview-002t))
+
+define KernelPackage/rcmap-pixelview-mk12
+  $(call RcmapTemplate/rcmap,rc-pixelview-mk12)
+endef
+$(eval $(call KernelPackage,rcmap-pixelview-mk12))
+
+define KernelPackage/rcmap-pixelview-new
+  $(call RcmapTemplate/rcmap,rc-pixelview-new)
+endef
+$(eval $(call KernelPackage,rcmap-pixelview-new))
+
+define KernelPackage/rcmap-pixelview
+  $(call RcmapTemplate/rcmap,rc-pixelview)
+endef
+$(eval $(call KernelPackage,rcmap-pixelview))
+
+define KernelPackage/rcmap-powercolor-ra
+  $(call RcmapTemplate/rcmap,rc-powercolor-real-angel)
+endef
+$(eval $(call KernelPackage,rcmap-powercolor-ra))
+
+define KernelPackage/rcmap-proteus-2309
+  $(call RcmapTemplate/rcmap,rc-proteus-2309)
+endef
+$(eval $(call KernelPackage,rcmap-proteus-2309))
+
+define KernelPackage/rcmap-purpletv
+  $(call RcmapTemplate/rcmap,rc-purpletv)
+endef
+$(eval $(call KernelPackage,rcmap-purpletv))
+
+define KernelPackage/rcmap-pv951
+  $(call RcmapTemplate/rcmap,rc-pv951)
+endef
+$(eval $(call KernelPackage,rcmap-pv951))
+
+define KernelPackage/rcmap-rc6-mce
+  $(call RcmapTemplate/rcmap,rc-rc6-mce)
+endef
+$(eval $(call KernelPackage,rcmap-rc6-mce))
+
+define KernelPackage/rcmap-realaudio-220-32
+  $(call RcmapTemplate/rcmap,rc-real-audio-220-32-keys)
+endef
+$(eval $(call KernelPackage,rcmap-realaudio-220-32))
+
+define KernelPackage/rcmap-reddo
+  $(call RcmapTemplate/rcmap,rc-reddo)
+endef
+$(eval $(call KernelPackage,rcmap-reddo))
+
+define KernelPackage/rcmap-snapstream-ff
+  $(call RcmapTemplate/rcmap,rc-snapstream-firefly)
+endef
+$(eval $(call KernelPackage,rcmap-snapstream-ff))
+
+define KernelPackage/rcmap-streamzap
+  $(call RcmapTemplate/rcmap,rc-streamzap)
+endef
+$(eval $(call KernelPackage,rcmap-streamzap))
+
+define KernelPackage/rcmap-su3000
+  $(call RcmapTemplate/rcmap,rc-su3000)
+endef
+$(eval $(call KernelPackage,rcmap-su3000))
+
+define KernelPackage/rcmap-tbs-nec
+  $(call RcmapTemplate/rcmap,rc-tbs-nec)
+endef
+$(eval $(call KernelPackage,rcmap-tbs-nec))
+
+define KernelPackage/rcmap-technisat-usb2
+  $(call RcmapTemplate/rcmap,rc-technisat-usb2)
+endef
+$(eval $(call KernelPackage,rcmap-technisat-usb2))
+
+define KernelPackage/rcmap-terratec-cinergy-xs
+  $(call RcmapTemplate/rcmap,rc-terratec-cinergy-xs)
+endef
+$(eval $(call KernelPackage,rcmap-terratec-cinergy-xs))
+
+define KernelPackage/rcmap-terratec-slim2
+  $(call RcmapTemplate/rcmap,rc-terratec-slim-2)
+endef
+$(eval $(call KernelPackage,rcmap-terratec-slim2))
+
+define KernelPackage/rcmap-terratec-slim
+  $(call RcmapTemplate/rcmap,rc-terratec-slim)
+endef
+$(eval $(call KernelPackage,rcmap-terratec-slim))
+
+define KernelPackage/rcmap-tevii-nec
+  $(call RcmapTemplate/rcmap,rc-tevii-nec)
+endef
+$(eval $(call KernelPackage,rcmap-tevii-nec))
+
+define KernelPackage/rcmap-tivo
+  $(call RcmapTemplate/rcmap,rc-tivo)
+endef
+$(eval $(call KernelPackage,rcmap-tivo))
+
+define KernelPackage/rcmap-totmediainhand02
+  $(call RcmapTemplate/rcmap,rc-total-media-in-hand-02)
+endef
+$(eval $(call KernelPackage,rcmap-totmediainhand02))
+
+define KernelPackage/rcmap-totmediainhand
+  $(call RcmapTemplate/rcmap,rc-total-media-in-hand)
+endef
+$(eval $(call KernelPackage,rcmap-totmediainhand))
+
+define KernelPackage/rcmap-trekstor
+  $(call RcmapTemplate/rcmap,rc-trekstor)
+endef
+$(eval $(call KernelPackage,rcmap-trekstor))
+
+define KernelPackage/rcmap-tt-1500
+  $(call RcmapTemplate/rcmap,rc-tt-1500)
+endef
+$(eval $(call KernelPackage,rcmap-tt-1500))
+
+define KernelPackage/rcmap-twinhan1027
+  $(call RcmapTemplate/rcmap,rc-twinhan1027)
+endef
+$(eval $(call KernelPackage,rcmap-twinhan1027))
+
+define KernelPackage/rcmap-vmate-m1f
+  $(call RcmapTemplate/rcmap,rc-videomate-m1f)
+endef
+$(eval $(call KernelPackage,rcmap-vmate-m1f))
+
+define KernelPackage/rcmap-vmate-s350
+  $(call RcmapTemplate/rcmap,rc-videomate-s350)
+endef
+$(eval $(call KernelPackage,rcmap-vmate-s350))
+
+define KernelPackage/rcmap-vmate-tv-pvr
+  $(call RcmapTemplate/rcmap,rc-videomate-tv-pvr)
+endef
+$(eval $(call KernelPackage,rcmap-vmate-tv-pvr))
+
+define KernelPackage/rcmap-winfast-usb2deluxe
+  $(call RcmapTemplate/rcmap,rc-winfast-usbii-deluxe)
+endef
+$(eval $(call KernelPackage,rcmap-winfast-usb2deluxe))
+
+define KernelPackage/rcmap-winfast
+  $(call RcmapTemplate/rcmap,rc-winfast)
+endef
+$(eval $(call KernelPackage,rcmap-winfast))
